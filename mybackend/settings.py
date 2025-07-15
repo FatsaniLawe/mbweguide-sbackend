@@ -152,3 +152,13 @@ CHANNEL_LAYERS = {
         "BACKEND": "channels.layers.InMemoryChannelLayer"
     }
 }
+
+# Gunicorn and Uvicorn for ASGI
+# https://docs.gunicorn.org/en/stable/run.html
+# https://www.uvicorn.org/
+
+import sys
+
+if 'runserver' not in sys.argv:
+    import gunicorn
+    import uvicorn
