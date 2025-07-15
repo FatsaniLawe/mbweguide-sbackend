@@ -27,7 +27,7 @@ DEBUG = False
 
 import os
 
-ALLOWED_HOSTS = ['mbewuguide.onrender.com']
+ALLOWED_HOSTS = ['mbewuguide-sbackend.onrender.com']
 
 
 
@@ -152,8 +152,3 @@ CHANNEL_LAYERS = {
         "BACKEND": "channels.layers.InMemoryChannelLayer"
     }
 }
-
-# Gunicorn and Uvicorn for ASGI
-# https://docs.gunicorn.org/en/stable/run.html
-# https://www.uvicorn.org/
-
