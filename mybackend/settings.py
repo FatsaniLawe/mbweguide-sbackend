@@ -23,9 +23,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-y*l=#^&&mwv!7@#0uml(4=j*63vpbq*xo5j)d55@5vg7g$u*rn'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+import os
+
+ALLOWED_HOSTS = ['mbewuguide.onrender.com']
+
 
 
 # Application definition
@@ -81,14 +84,16 @@ ASGI_APPLICATION = 'mybackend.asgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+import os
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'mbewu',
-        'USER': 'mbewuuser',
-        'PASSWORD': 'mbewupass',
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'NAME': os.environ.get('DB_NAME', 'mbewuguidedb'),
+        'USER': os.environ.get('DB_USER', 'mbewuguidedb_user'),
+        'PASSWORD': os.environ.get('DB_PASSWORD', 'o2BAGou3CxsZ46ixbmt5XqLfcn1SOxTa'),
+        'HOST': os.environ.get('DB_HOST', 'dpg-d1rbuoa4d50c738okke0-a'),
+        'PORT': os.environ.get('DB_PORT', '5432'),
     }
 }
 
@@ -126,6 +131,8 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STATIC_URL = 'static/'
 
